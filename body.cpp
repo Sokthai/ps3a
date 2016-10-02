@@ -37,7 +37,7 @@ void body::setPosition(sf::Vector2f p){
 	_sprite.setPosition(p);
 }
 
-sf::Vector2f body::getPosition(){
+sf::Vector2f body::getPosition(){//return current position
 	return _p;
 }
 
