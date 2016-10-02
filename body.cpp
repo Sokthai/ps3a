@@ -12,7 +12,24 @@ body::body(sf::Vector2f p, sf::Vector2f v, float mass, string image):
 	_p(p), _v(v), _mass(mass), _image(image){
 	_texture.loadFromFile(image);
 	_sprite.setTexture(_texture);
-	_sprite.setPosition(p);
+	setPosition(p);
+}
+
+
+body::body(float x, float y, float vx,
+		float vy, float mass, string image){
+	_p.x = x; _p.y = y;
+	_v.x = vx; _v.y = vy;
+	_mass = mass; _image = image;
+
+	_texture.loadFromFile(image);
+	_sprite.setTexture(_texture);
+	setPosition(x, y);
+
+}
+
+void body::setPosition(float x, float y){
+	_sprite.setPosition(x,  y);
 }
 
 

@@ -20,10 +20,12 @@ using namespace std;
 class body : public sf::Drawable, sf::Transformable{
 public:
 	body(sf::Vector2f, sf::Vector2f, float, string);
+	body(float, float, float, float, float, string);
 //	friend std::ostream& operator>> (std::ostream &out);
 
 	sf::Vector2f getPosition();
-	void setPosition(sf::Vector2f p);
+	void setPosition(sf::Vector2f);
+	void setPosition(float, float);
 
 //	sf::Vector2f getVelocity(){ return _v; }
 //	void setVelocity(sf::Vector2f v){ _v = v; }
