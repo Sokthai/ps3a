@@ -8,22 +8,20 @@
 #include "body.hpp"
 
 int main(int argc, char* argv[]){
-
+	float x = 0, y = 0;
 	sf::Vector2f p;
 	sf::Vector2f v;
-	p.x = 0;
-	p.y = 0;
+	p.x = 50;
+	p.y = 50;
 
 	v.x = 0;
 	v.y = 0;
 
 	body sun(p, v, 100, "sun.gif");
-
-	 sf::CircleShape shape(100.f);
-	  shape.setFillColor(sf::Color::Green);
+	body earth(p, v, 100, "earth.gif");
 
 
-	  sf::RenderWindow window(sf::VideoMode(200, 200), "Cosmos");
+	 sf::RenderWindow window(sf::VideoMode(500, 500), "Cosmos");
 
 	 while(window.isOpen() ){
 	 		 sf::Event event;
@@ -33,9 +31,16 @@ int main(int argc, char* argv[]){
 	 			 }
 	 		 }
 
+
 	 		 window.clear();
-	 		 window.draw(sun);
+	 		 window.draw(earth);
 	 		 window.display();
+
+	 		 p.x = x;
+	 		 p.y = y;
+	 		 x += 0.1f;
+	 		 y += 0.1f;
+	 		 sun.setPosition(p);
 
 	 	 }
 

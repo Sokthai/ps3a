@@ -22,17 +22,17 @@ public:
 	body(sf::Vector2f, sf::Vector2f, float, string);
 //	friend std::ostream& operator>> (std::ostream &out);
 
-	sf::Vector2f getPosition(){ return _p; }
-	void setPosition(sf::Vector2f p){ _p = p; }
+	sf::Vector2f getPosition();
+	void setPosition(sf::Vector2f p);
 
-	sf::Vector2f getVelocity(){ return _v; }
-	void setVelocity(sf::Vector2f v){ _v = v; }
+//	sf::Vector2f getVelocity(){ return _v; }
+//	void setVelocity(sf::Vector2f v){ _v = v; }
 
-	string getImage(){ return _image; }
-	void setImage(string image){ _image = image; }
-
-	float getMass(){ return _mass; }
-	void setMass(float mass){ _mass = mass;}
+//	string getImage(){ return _image; }
+//	void setImage(string image){ _image = image; }
+//
+//	float getMass(){ return _mass; }
+//	void setMass(float mass){ _mass = mass;}
 
 	void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
 
