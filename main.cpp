@@ -6,25 +6,29 @@
  */
 
 #include "body.hpp"
+#include <iostream>
+using namespace std;
 
 int main(int argc, char* argv[]){
 	float x = 0, y = 0;
 	sf::Vector2f p;
 	sf::Vector2f v;
-	p.x = 250;
-	p.y = 250;
+	p.x = 0;
+	p.y = 0;
 
 	v.x = 0;
 	v.y = 0;
 
+	int winSize = (2.5 * pow(10, 2)) * 2; // scale by 10^9
+	
 	body sun(p, v, 100, "sun.gif");
-	body earth(100, 100, 25, 12, 100, "earth.gif");
-	body mars(60, 15,63, 20, 100, "mars.gif");
-	body mercury(150, 250, 65, 50, 100, "mercury.gif");
-	body venus(300, 350, 50, 52, 100, "venus.gif");
+	body earth(1.5 * pow(10, 2), 0, 25, 12, 100, "earth.gif");
+	body mars(2.27 * pow(10, 2), 0,63, 20, 100, "mars.gif");
+	body mercury(5.8 * pow(10, 1), 0, 65, 50, 100, "mercury.gif");
+	body venus(1.1 * pow(10, 2), 0, 50, 52, 100, "venus.gif");
 
-
-	 sf::RenderWindow window(sf::VideoMode(500, 500), "Cosmos");
+	
+	 sf::RenderWindow window(sf::VideoMode(winSize, winSize), "Cosmos");
 
 	 while(window.isOpen() ){
 	 		 sf::Event event;
@@ -37,7 +41,7 @@ int main(int argc, char* argv[]){
 
 	 		 window.clear();
 	 		 window.draw(sun);
-	 		 window.draw(earth);
+			 window.draw(earth);
 	 		 window.draw(mars);
 	 		 window.draw(mercury);
 	 		 window.draw(venus);

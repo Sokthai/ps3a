@@ -13,7 +13,7 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
-
+#include <cmath>
 using namespace std;
 
 
@@ -23,29 +23,36 @@ public:
 	body(float, float, float, float, float, string);
 //	friend std::ostream& operator>> (std::ostream &out);
 
-	sf::Vector2f getPosition();
-	void setPosition(sf::Vector2f);
-	void setPosition(float, float);
+  sf::Vector2f getPosition();
+  void setPosition(sf::Vector2f);
+  void setPosition(float, float);
 
-//	sf::Vector2f getVelocity(){ return _v; }
-//	void setVelocity(sf::Vector2f v){ _v = v; }
+  sf::Vector2f getVelocity();
+  void setVelocity(sf::Vector2f);
 
-//	string getImage(){ return _image; }
-//	void setImage(string image){ _image = image; }
-//
-//	float getMass(){ return _mass; }
-//	void setMass(float mass){ _mass = mass;}
+	string getImage();
+  void setImage(string);
+
+  float getMass();
+  void setMass(float);
+  float scale();
 
 	void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
 
 private:
-
-	sf::Vector2f _p, _v, _f, _a;
+  sf::Vector2f force();
+  sf::Vector2f  acceleration();
+  sf::Vector2f velocity(int);
+  void position(int);
+  sf::Vector2f _p, _v, _f,  _a;
 	string _image;
-	float _mass;
+  float _mass, _r;
 	 sf::Sprite _sprite;
 	 sf::Texture _texture;
-
+  const float  _G = 6.67 * pow(10, -11);
+  
+  const float _sunMass = pow(2, 30);
+ 
 };
 
 #endif /* PS3A_BODY_HPP_ */
