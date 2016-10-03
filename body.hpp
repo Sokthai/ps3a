@@ -49,9 +49,9 @@ private:
   float _mass, _r;
 	 sf::Sprite _sprite;
 	 sf::Texture _texture;
-  const float  _G = 6.67 * pow(10, -11);
+ static  const float  _G = 6.67;// * pow(10, -11);
   
-  const float _sunMass = pow(2, 30);
+  static const float _SUNMASS = 2;//pow(2, 21);
  
 };
 

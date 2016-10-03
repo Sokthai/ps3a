@@ -11,6 +11,7 @@
 body::body(sf::Vector2f p, sf::Vector2f v, float mass, string image):
   _p(p), _v(v), _mass(mass), _image(image){
 
+ 
   setImage(image);
 	setPosition(p);
 }
@@ -87,8 +88,8 @@ sf::Vector2f body::force(){
   
   _r = sqrt(pow((_p.x - scale()), 2) + pow((_p.y - scale()), 2));
   float theta = asin((_p.y - scale()) / _r);
-  _f.x = ((_G * _sunMass * _mass) / pow(_r, 2)) * cos(theta);
-  _f.y = ((_G * _sunMass * _mass) / pow(_r, 2)) * sin(theta);
+  _f.x = ((_G * _SUNMASS * _mass) / pow(_r, 2)) * cos(theta);
+  _f.y = ((_G * _SUNMASS * _mass) / pow(_r, 2)) * sin(theta);
   return _f;
 }
 
