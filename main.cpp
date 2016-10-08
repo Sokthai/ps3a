@@ -26,11 +26,11 @@ int main(int argc, char* argv[]){
 	body mercury(5.8 * pow(10, 1), 0, 0, 4.79 * pow(10, 4), 3.3 * pow(10, 14), "mercury.gif");
 	body venus(1.1 * pow(10, 2), 0, 0, 3.5 * pow(10, 4), 4.87 * pow(10, 15), "venus.gif");
 
-
+	/*
 	vector <body*> theBody
 	  theBody.push_back(new body(sun));
 	cout << theBody.max_size();
-
+	*/
 
 
 	
