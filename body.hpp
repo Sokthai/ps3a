@@ -1,9 +1,4 @@
-/*
- * body.h
- *
- *  Created on: Oct 1, 2016
- *      Author: allen
- */
+
 
 #ifndef PS3A_BODY_HPP_
 #define PS3A_BODY_HPP_
@@ -21,37 +16,26 @@ class body : public sf::Drawable, sf::Transformable{
 public:
 	body(sf::Vector2f, sf::Vector2f, float, string);
 	body(float, float, float, float, float, string);
-//	friend std::ostream& operator>> (std::ostream &out);
 
   sf::Vector2f getPosition();
   void setPosition(sf::Vector2f);
   void setPosition(float, float);
 
-  sf::Vector2f getVelocity();
-  void setVelocity(sf::Vector2f);
-
 	string getImage();
   void setImage(string);
 
-  float getMass();
-  void setMass(float);
   float scale();
 
 	void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
 
 private:
-  sf::Vector2f force();
-  sf::Vector2f  acceleration();
-  sf::Vector2f velocity(int);
-  void position(int);
+
+
   sf::Vector2f _p, _v, _f,  _a;
+  float _mass;
 	string _image;
-  float _mass, _r;
 	 sf::Sprite _sprite;
 	 sf::Texture _texture;
- static  const float  _G = 6.67;// * pow(10, -11);
-  
-  static const float _SUNMASS = 2;//pow(2, 21);
  
 };
 
