@@ -13,8 +13,8 @@ body::body(float x, float y, float vx,
 	_v.x = vx; _v.y = vy;
 	_mass = mass; _image = image;
 
-	//setImage(image);
-	//setPosition(x, y);
+	setImage(image);
+	setPosition(x, y);
 
 }
 

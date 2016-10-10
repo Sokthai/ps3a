@@ -5,11 +5,13 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
-  vector<body*> b;// (new body(1, 2, 3, 4, 5, "picture"));
+  vector<body*> b;// (new body(1, 2, 3, 4, 5, "sun.gif"));
 
   
    b.push_back( new body(1, 2, 3, 4, 5, "picture"));
   vector<body*> c (b);
+
+  /*
   cout << b[0]->getPosition().y << endl;
   cout << c[0]->getPosition().x << endl;
   c[0]->setPosition(sf::Vector2f(18, 19));
@@ -17,7 +19,7 @@ int main(int argc, char* argv[]){
   cout <<"this is b " <<  b[0]->getPosition().y << endl;
  
   
-    /*
+ /*
   vector<body>::iterator v = b.begin();
   while (v != b.end()) {
       body &bo = *v;
@@ -26,18 +28,17 @@ int main(int argc, char* argv[]){
 
   }
 
-  /*
+  
   vector<body> db (5, body(10, 20, 30, 40, 50, "image"));  
   vector<body>::iterator i;
   for (i = db.begin(); i != db.end(); ++i){
     body &bo = *i;
     cout << bo.getPosition().x << endl;
   }
-  
   */
-  /*
+
   
-	float x = 0, y = 0;
+ 
 	sf::Vector2f p;
 	sf::Vector2f v;
 	p.x = 0;
@@ -81,6 +82,6 @@ int main(int argc, char* argv[]){
 	 		 window.display();
 	 	 }
 
-	 */
+	
 	return 0;
 }
