@@ -5,9 +5,37 @@ using namespace std;
 
 int main(int argc, char* argv[]){
 
+  vector<body*> b;// (new body(1, 2, 3, 4, 5, "picture"));
 
+  
+   b.push_back( new body(1, 2, 3, 4, 5, "picture"));
+  vector<body*> c (b);
+  cout << b[0]->getPosition().y << endl;
+  cout << c[0]->getPosition().x << endl;
+  c[0]->setPosition(sf::Vector2f(18, 19));
+  cout <<"this is c " <<  c[0]->getPosition().y << endl;
+  cout <<"this is b " <<  b[0]->getPosition().y << endl;
+ 
+  
+    /*
+  vector<body>::iterator v = b.begin();
+  while (v != b.end()) {
+      body &bo = *v;
+    cout << "value of vector is " << bo.getPosition().x << endl;
+    v++;
 
+  }
 
+  /*
+  vector<body> db (5, body(10, 20, 30, 40, 50, "image"));  
+  vector<body>::iterator i;
+  for (i = db.begin(); i != db.end(); ++i){
+    body &bo = *i;
+    cout << bo.getPosition().x << endl;
+  }
+  
+  */
+  /*
   
 	float x = 0, y = 0;
 	sf::Vector2f p;
@@ -17,7 +45,7 @@ int main(int argc, char* argv[]){
 	v.x = 0;
 	v.y = 0;
 
-	int winSize = (2.5 * pow(10, 2)) * 2; // scale by 10^9 for the position
+	int universe = (2.5 * pow(10, 2)) * 2; // scale by 10^9 for the position
 	
 	//scale the mass by 10^9
 	body sun(p, v, 1.98 * pow(10, 21), "sun.gif");
@@ -26,16 +54,16 @@ int main(int argc, char* argv[]){
 	body mercury(5.8 * pow(10, 1), 0, 0, 4.79 * pow(10, 4), 3.3 * pow(10, 14), "mercury.gif");
 	body venus(1.1 * pow(10, 2), 0, 0, 3.5 * pow(10, 4), 4.87 * pow(10, 15), "venus.gif");
 
-	/*
-	vector <body*> theBody
-	  theBody.push_back(new body(sun));
-	cout << theBody.max_size();
-	*/
+
+//	vector <body*> theBody
+//	  theBody.push_back(new body(sun));
+//	cout << theBody.max_size();
+
 
 
 	
 
-	 sf::RenderWindow window(sf::VideoMode(winSize, winSize), "Celestial");
+	 sf::RenderWindow window(sf::VideoMode(universe, universe), "Celestial");
 
 	 while(window.isOpen() ){
 	 		 sf::Event event;
@@ -53,5 +81,6 @@ int main(int argc, char* argv[]){
 	 		 window.display();
 	 	 }
 
+	 */
 	return 0;
 }

@@ -1,10 +1,8 @@
 #include "body.hpp"
 
 body::body(sf::Vector2f p, sf::Vector2f v, float mass, string image):
-  _p(p), _v(v), _mass(mass), _image(image){
-
- 
-  setImage(image);
+  _p(p), _v(v), _mass(mass), _image(image){ 
+        setImage(image);
 	setPosition(p);
 }
 
@@ -15,20 +13,22 @@ body::body(float x, float y, float vx,
 	_v.x = vx; _v.y = vy;
 	_mass = mass; _image = image;
 
-	setImage(image);
-	setPosition(x, y);
+	//setImage(image);
+	//setPosition(x, y);
 
 }
 
 void body::setPosition(float x, float y){
-  x += scale();
-  y += scale();
-	_sprite.setPosition(x,  y);
+  _p.x = x;
+  _p.y = y;
+  
+  _sprite.setPosition( scale() + _p.x, scale() +  _p.y);
 }
 
 void body::setPosition(sf::Vector2f p){
-  p.x = scale();
-  p.y = scale();
+  _p = p;
+  p.x += scale();
+  p.y += scale();
   _sprite.setPosition(p);
 }
 
@@ -55,7 +55,6 @@ void body::setImage(string image){
 
 
 float body::scale(){
-  
   return 2.5 * pow(10, 2);
 }
 
@@ -68,3 +67,17 @@ void body::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 
 
+
+istream &operator>>( istream  &input, body &b)  { 
+    //input >> D.feet >> D.inches;
+
+         return input;            
+}
+
+
+/*
+ std::ostream& operator<< (std::ostream &out, body &lfsr){
+    out << lfsr._seed;
+	 return out;
+}
+ */
