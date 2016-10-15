@@ -26,8 +26,7 @@ public:
 
   float scale();
     friend istream  &operator>>(istream &input, body &b);
-  // friend std::ostream& operator<< (std::ostream &out, body &lfsr);
-
+  
   void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
 
 private:

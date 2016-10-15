@@ -69,15 +69,9 @@ void body::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 
 istream &operator>>( istream  &input, body &b)  { 
-    //input >> D.feet >> D.inches;
+  
 
          return input;            
 }
 
 
-/*
- std::ostream& operator<< (std::ostream &out, body &lfsr){
-    out << lfsr._seed;
-	 return out;
-}
- */
