@@ -25,14 +25,8 @@ int main(int argc, char* argv[]){
 //	body venus(1.1 * pow(10, 2), 0, 0, 3.5 * pow(10, 4), 4.87 * pow(10, 15), "venus.gif");
 
 
-//	 1.4960e+11  0.0000e+00  0.0000e+00  2.9800e+04  5.9740e+24    earth.gif
-//	 2.2790e+11  0.0000e+00  0.0000e+00  2.4100e+04  6.4190e+23     mars.gif
-//	 5.7900e+10  0.0000e+00  0.0000e+00  4.7900e+04  3.3020e+23  mercury.gif
-//	 0.0000e+00  0.0000e+00  0.0000e+00  0.0000e+00  1.9890e+30      sun.gif
-//	 1.0820e+11  0.0000e+00  0.0000e+00  3.5000e+04  4.8690e+24    venus.gif
-
 	vector<body> celestial;
-	body planets;
+	body planets;//= new planets();
 	string input;
 
 	for (int i = 0; i < 5; i++){
@@ -42,9 +36,9 @@ int main(int argc, char* argv[]){
 		iss >> celestial.at(i);
 	}
 
-	cout << celestial[0].getImage() << endl;
-	cout << celestial[1].getImage() << endl;
-	cout << celestial[2].getImage() << endl;
+//	cout << celestial[0].getImage() << endl;
+//	cout << celestial[1].getImage() << endl;
+//	cout << celestial[2].getImage() << endl;
 	cout << celestial[3].getImage() << endl;
 	cout << celestial[4].getImage() << endl;
 
@@ -63,8 +57,17 @@ int main(int argc, char* argv[]){
 	 			 }
 	 		 }
 	 		 window.clear();
+
+
+
+//	 		window.draw(sun);
+//	 		window.draw(mars);
+//	 		window.draw(earth);
+//	 		window.draw(venus);
+//	 		window.draw(mercury);
 	 		 for ( int i = 0; i < celestial.size(); i++){
 	 			 window.draw(celestial[i]);
+	 			 //celestial[i].setPosition();
 	 		 }
 	 		 window.display();
 	 	 }
