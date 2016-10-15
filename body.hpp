@@ -14,6 +14,7 @@ using namespace std;
 
 class body : public sf::Drawable, sf::Transformable{
 public:
+	body();
 	body(sf::Vector2f, sf::Vector2f, float, string);
 	body(float, float, float, float, float, string);
 
@@ -21,10 +22,14 @@ public:
   void setPosition(sf::Vector2f);
   void setPosition(float, float);
 
+
+  sf::Vector2f getVelocity();
+  float getMass();
+
 	string getImage();
   void setImage(string);
 
-  float scale();
+  sf::Vector2f scale(sf::Vector2f p);
     friend istream  &operator>>(istream &input, body &b);
   
   void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
