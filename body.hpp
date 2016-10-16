@@ -33,7 +33,7 @@ public:
 	string getImage();
 	void setImage(string);
 
-	sf::Vector2f scale(sf::Vector2f p);
+
 	friend istream  &operator>>(istream&, body&);
 
 	void virtual draw(sf::RenderTarget&, sf::RenderStates) const;
@@ -46,10 +46,11 @@ private:
 	string _image;
 	sf::Sprite _sprite;
 	sf::Texture _texture;
-
-
+	void scale(body&);
+	sf::Vector2f scale(sf::Vector2f p);
 	sf::Vector2f getForce();
 	sf::Vector2f getAcceleration();
+	float scaleMass(float);
  
 };
 

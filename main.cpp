@@ -10,19 +10,19 @@ int main(int argc, char* argv[]){
 
 	sf::Vector2f p;
 	sf::Vector2f v;
-	p.x = 0;
-	p.y = 0;
+	p.x = 250;
+	p.y = 250;
 	v.x = 0;
 	v.y = 0;
 
 	int universe = (2.5 * pow(10, 2)) * 2; // scale by 10^9 for the position
 
 	//scale the mass by 10^9
-//	body sun(p, v, 1.98 * pow(10, 21), "sun.gif");
-//	body earth(1.5 * pow(10, 2), 0, 0, 2.98 * pow(10, 4), 5.97 * pow(10, 15), "earth.gif");
-//	body mars(2.27 * pow(10, 2), 0, 0, 2.41 * pow(10, 4), 6.4 * pow(10, 14), "mars.gif");
-//	body mercury(5.8 * pow(10, 1), 0, 0, 4.79 * pow(10, 4), 3.3 * pow(10, 14), "mercury.gif");
-//	body venus(1.1 * pow(10, 2), 0, 0, 3.5 * pow(10, 4), 4.87 * pow(10, 15), "venus.gif");
+	body sun(p, v, 1.98e10, "sun.gif");
+	body earth(250+ 1.5e+2, 250, 0, 2.98e+4, 5.97e+4, "earth.gif");
+	body mars(2.27e+11, 0, 0, 2.41e+4, 6.4e+23, "mars.gif");
+	body mercury(5.8e+10, 0, 0, 4.79e+4, 3.3e+23, "mercury.gif");
+	body venus(1.1e+11, 0, 0, 3.5e+4, 4.87e+24, "venus.gif");
 
 
 	vector<body> celestial;
@@ -39,15 +39,19 @@ int main(int argc, char* argv[]){
 //	cout << celestial[0].getImage() << endl;
 //	cout << celestial[1].getImage() << endl;
 //	cout << celestial[2].getImage() << endl;
-	cout << celestial[3].getImage() << endl;
-	cout << celestial[4].getImage() << endl;
-
-	cout << celestial.size() << endl;
+//	cout << celestial[3].getImage() << endl;
+//	cout << celestial[4].getImage() << endl;
+//
+//	cout << celestial.size() << endl;
 
 	 sf::RenderWindow window(sf::VideoMode(universe, universe), "Celestial");
 
 
 
+	 sf::Clock clock;
+	 sf::Time time = sf::seconds(50);
+	 cout << time.asMilliseconds() << endl;
+int i =0;
 
 	 while(window.isOpen() ){
 	 		 sf::Event event;
@@ -59,17 +63,39 @@ int main(int argc, char* argv[]){
 	 		 window.clear();
 
 
+	 		// for ( int j = 0 ; j < 5; j++){
+	 			 window.draw(earth);
 
-//	 		window.draw(sun);
+//	 			 cout << j ;
+	 		//}
+
+	 		 earth.setVelocity(1000);
+	 		 //cout << "x is : " << earth.getPosition().x << endl;
+	 		//cout << "y is : " << earth.getPosition().y << endl;
+
+//	 		earth.setPosition(earth.getPosition().x + i,
+//	 				earth.getPosition().y + i );
+//	 		i += 1000;
+//	 		 cout << earth.getPosition().x << endl;
+
+
+
+//	 		sf::Time t = clock.getElapsedTime();
+//	 		cout << t.asSeconds() << endl;
+//	 		clock.restart();
+
+	 		window.draw(sun);
 //	 		window.draw(mars);
 //	 		window.draw(earth);
+
 //	 		window.draw(venus);
 //	 		window.draw(mercury);
-	 		 for ( int i = 0; i < celestial.size(); i++){
-	 			 window.draw(celestial[i]);
-	 			 //celestial[i].setPosition();
-	 		 }
+//	 		 for ( int i = 0; i < celestial.size(); i++){
+//	 			 window.draw(celestial[i]);
+//	 			 //celestial[i].setPosition();
+//	 		 }
 	 		 window.display();
+//	 		 earth.setVelocity();
 	 	 }
 
 
