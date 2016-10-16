@@ -46,7 +46,7 @@ void body::setPosition(float x, float y){
 
 void body::setPosition(sf::Vector2f p){
   _p = p;
-  //p = scale(p);
+  p = scale(p);
   //sf::Vector2f f = getForce();
   //cout  << _image << " :x " << _p.x << endl;
 
@@ -150,12 +150,12 @@ sf::Vector2f body::getForce(){
 //	cout << "this is r " << r << endl;
 
 	int theta = asin(_p.y / r);
-//	cout << " _p.y in force " << _p.x  << endl;
+	cout << " _p.y in force " << _p.x  << endl;
 	//cout << " theta " << theta << endl;
-	f.x = ((G * _mass * sunMass) / pow(r, 2));
-	f.x *=  (_p.x / r);
-	f.y = ((G * _mass * sunMass) / pow(r, 2));
-	f.y *= (_p.y / r);
+	f.x = ((G * scaleMass(_mass) * sunMass) / pow(r, 2));
+	f.x *=  _p.x / r;
+	f.y = ((G * scaleMass(_mass) * sunMass) / pow(r, 2));
+	f.y *= _p.y / r;
 
 
 //	cout << "this is y " << f.x <<endl;
@@ -179,8 +179,8 @@ sf::Vector2f body::getAcceleration(){
 	sf::Vector2f a;
 	sf::Vector2f F = getForce();
 
-	a.x = F.x / _mass;
-	a.y = F.y / _mass;
+	a.x = F.x / scaleMass(_mass);
+	a.y = F.y / scaleMass(_mass);
 //	cout << "this is f.x " << F.x << endl;
 //	cout << "this is a.x " << a.x << endl;
 //	cout << "this is a.y " << a.y << endl;
@@ -201,24 +201,33 @@ sf::Vector2f body::getVelocity(){
 void body::setVelocity(int t){
 	sf::Vector2f a = getAcceleration();
 	cout << "this is a.x " << a.x << endl;
-//	cout << "this is a.y " << a.y << endl;
+	cout << "this is a.y " << a.y << endl;
 	cout << "this is v.x " << _v.x << endl;
-//	cout << "this is v.y " << _v.y << endl;
+	cout << "this is v.y " << _v.y << endl;
 	_v.x += t * a.x;
 	_v.y += t * a.y;
 
 	_p.x += t * _v.x;
 	_p.y += t * _v.y;
 
-	cout << "this is _p.x " << _p.x << endl;
-	cout << "this is _p.y " << _p.y << endl;
+//	cout << "this is _p.x " << _p.x << endl;
+//	cout << "this is _p.y " << _p.y << endl;
 
 	setPosition(_p);
 }
 
 //**********************************************************
 
+void body::scale(body& b){
+	if (b._p.x > 0) b._p.x *= 1e-9;
+	if (b._p.y > 0) b._p.y *= 1e-9;
 
+	//if (b._mass > 0) b._mass *= 1e-9;
+	b._mass *= 1e-20;
+
+	b._p.x += 250;
+	b._p.y += 250;
+}
 
 
 
@@ -237,15 +246,7 @@ void body::draw(sf::RenderTarget& target, sf::RenderStates states) const {
  }
 //**********************************************************
 
-void body::scale(body& b){
-	if (b._p.x > 0) b._p.x *= 1e-9;
-	if (b._p.y > 0) b._p.y *= 1e-9;
-	//if (b._v.x > 0) b._v.x *= 1e-9;
-	if (b._mass > 0) b._mass *= 1e-20;
 
-	b._p.x += 250;
-	b._p.y += 250;
-}
 
 
 
